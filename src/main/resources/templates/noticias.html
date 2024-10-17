@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Últimas Notícias</title>
+
+    <style>
+        table {
+            width: 100%;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2>Últimas Notícias</h2>
+    <table>
+        <tr>
+            <th>Autor</th>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Link</th>
+        </tr>
+        <tbody th:each="artigo : ${artigos}">
+            <tr>
+                <td th:text="${artigo['author']}" style="width: 10%"></td>
+                <td th:text="${artigo['title']}" style="width: 50%"></td>
+                <td th:text="${artigo['description']}" style="width: 30%"></td>
+                <td style="width: 10%"><a target="_blank" th:href="${artigo['url']}">Artigo</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
